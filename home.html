@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<style media="screen">
+.space {
+  padding-left: 257px;
+  padding-right: 100px;
+}
+header {
+  background-color: #191970;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.menu {
+  color: white;
+  margin-left: auto; /* Pushes the navigation to the right */
+  font-size:14px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu li:hover {
+  color: #ff5733;
+}
+/* Animation effect */
+.menu li::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff5733;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+.menu li:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.menu li a.active,
+.menu li a:hover {
+  color: #ff5733; /* Change color for active link and on hover */
+}
+
+.menu li a:hover::before,
+.menu li a.active::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.container {
+          display:inline-grid;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-right:50px;
+        }
+
+        .item {
+          margin: 5px;
+          padding: 5px;
+          background-color: none;
+        }
+    footer {
+      position: relative;
+    background-color:#191970;
+    padding: 20px;
+    color:white;
+          }
+          a {
+              color:white;
+              text-decoration: none;
+          }
+          select{
+                position:absolute;
+                display: inline;
+                top: 20px;
+                right: 20px;
+                background-color: lightgrey;
+                color: black;
+                border:3px solid black;
+                padding: 5px 10px;
+              }
+              .select-right {
+                background-image: url('eng.png'); /* Add search icon */
+                background-position:-1px center; /* Position icon to the left */
+                background-repeat: no-repeat;
+                background-size: 20px 20px;
+                  width:95px;
+          right: 20px;
+            top: 65px;
+        }
+        .select-left {
+          background-image: url('ind.png'); /* Add search icon */
+          background-position: left; /* Position icon to the left */
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+          width:92px;
+          right: 120px;
+            top: 65px;
+        }
+        option {
+      text-align:center;
+    }
+    .company-name {
+  margin-right: 10px; /* Adjust as needed */
+}
+.logo-and-name {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                    }
+                   .social-icon {
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+                        display:flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: transform 0.3s;
+
+                    }
+                   .social-icon:hover {
+                        transform: translateY(-5px);
+                    }
+                   .facebook {
+                        background-image: url('fb.png');
+                        background-position:center;
+                        background-repeat: no-repeat;
+                        background-size: 32px 32px;
+                    }
+                   .twitter {
+                        background-image: url('twx.png');
+                        background-position:center;
+                        background-repeat: no-repeat;
+                        background-size: 45px 35px;
+                    }
+                   .linkedin {
+                        background-image: url('in.png');
+                        background-position:center;
+                        background-repeat: no-repeat;
+                        background-size: 30px 30px;
+                    }
+                   .instagram {
+                        background-image: url('gram.png');
+                        background-position:center;
+                        background-repeat: no-repeat;
+                        background-size: 30px 30px;
+                    }
+
+.content {
+display: flex;
+justify-content: space-between;
+padding: 20px;
+background-color: lightgrey;
+}
+
+.content-container {
+flex: 1;
+padding: 20px;
+}
+
+.content-container .content-heading {
+  text-decoration:underline;
+  margin-top: 50px;
+font-size: 40px;
+font-weight: bold;
+  animation: slideUp 1s ease forwards;
+}
+.heading {
+  text-align:center;
+  text-decoration:underline;
+  font-size:40px;
+  animation: slideUp 1s ease forwards;
+}
+.content-container .content-description {
+  margin-top: 50px;
+  opacity: 0; /* Start with opacity 0 to set up for animation */
+  animation: slideLeft 1s forwards;
+  font-size: 22px;
+}
+.description {
+  padding-left: 90px;
+  padding-right: 90px;
+  text-align:center;
+  margin-top: 50px;
+  opacity: 0; /* Start with opacity 0 to set up for animation */
+  animation: slideRight 1s ease forwards;
+  font-size: 22px;
+}
+
+.circle {
+  width:350px;
+  height: 350px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: popUpCircle 1s ease forwards;
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-5%); /* Adjust the distance to slide */
+    opacity: 1;
+  }
+}
+@keyframes popUpCircle {
+  0% {
+    transform: scale(0); /* Start with no size */
+  }
+  50% {
+    transform: scale(1.1); /* Grow to 110% size */
+  }
+  100% {
+    transform: scale(1); /* Return to original size */
+  }
+}
+.button {
+  height: 22px;
+  width:125px;
+  margin-left: 25px;
+margin-top: 20px;
+background-color: #ff5733;
+color: white;
+padding: 10px 88px; /* Adjusted size to medium */
+border: 1px solid black;
+border-radius: 26px;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: popUpCircle 1s ease forwards;
+}
+
+.button:hover {
+background-color: yellow;
+animation: slideLeftShine 0.5s forwards;
+color:black;
+}
+
+@keyframes slideRight {
+from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+to {
+  transform: translateX(0);
+  opacity: 1;
+}
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(50px); /* Start from 50px below */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.content-space {
+  padding-left: 90px;
+  padding-right: 90px;
+}
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color:white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; /* Limit the width of the modal content */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add a shadow */
+  text-align: center; /* Center-align content */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style the heading */
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color:black;
+  text-decoration: underline;
+}
+
+/* Style the paragraph */
+.modal-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px; /* Add margin to separate from heading */
+  text-align: left;
+  color:black;
+}
+.square-cards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border:none;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+.card:nth-child(1) {
+  animation: pop-up 0.5s ease forwards 0.2s; /* Apply animation with delay for the first card */
+}
+
+.card:nth-child(2) {
+  animation: pop-up 0.5s ease forwards 0.7s; /* Apply animation with delay for the second card */
+}
+
+.card:nth-child(3) {
+  animation: pop-up 0.5s ease forwards 1.2s; /* Apply animation with delay for the third card */
+}
+.card:nth-child(4) {
+  animation: pop-up 0.5s ease forwards 1.7s; /* Apply animation with delay for the third card */
+}
+
+@keyframes pop-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Initial position below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+  }
+}
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.text h2 {
+  margin: 0;
+  animation: slideRight 1s ease forwards;
+}
+.card-button {
+  height: 26px;
+  width:26px;
+  margin-left: 50px;
+margin-top: 22px;
+background-color: #ff5733;
+color: white;
+padding: 10px 88px; /* Adjusted size to medium */
+border: 1px solid black;
+border-radius: 26px;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.card-button {
+  height: 26px;
+  width:26px;
+  margin-left: 50px;
+margin-top: 22px;
+background-color: #ff5733;
+color: white;
+padding: 10px 88px; /* Adjusted size to medium */
+border: 1px solid black;
+border-radius: 26px;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.card-button:hover {
+background-color: yellow;
+animation: slideLeftShine 0.5s forwards;
+color:black;
+}
+body{
+background-color:lightgrey;
+}
+  /* Style for the pop-up */
+  .popup {
+    height: 500px;
+    width: 560px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #000; /* Text color */
+    text-align:center;
+    font-size: 24px;
+     z-index: 1000;
+  }
+  .popup-1 {
+    height: 530px;
+    width: 900px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #000; /* Text color */
+    text-align: left;
+      font-size: 24px;
+       z-index: 1000;
+  }
+  /* Style for the close icon */
+  .close-icon {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close-icon:hover,
+  .close-icon:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .gap{
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+  .content-description{
+    text-align: center;
+    font-size: 22px;
+  }
+  #videoContainer {
+   display: none;
+   position: fixed; /* Ensures the popup stays in the same position relative to the viewport */
+   top: 50%; /* Adjust as needed */
+   left: 50%; /* Adjust as needed */
+   transform: translate(-50%, -50%); /* Centers the popup horizontally and vertically */
+   z-index: 1000; /* Ensures the popup is above other elements */
+   background-color:black; /* Transparent black background */
+   width: 80%; /* Adjust width as needed */
+   max-width: 600px; /* Max width of the popup */
+   height: auto; /* Adjust height as needed */
+   max-height: 80%; /* Max height of the popup */
+   border-radius: 10px; /* Rounded corners */
+   padding: 20px; /* Padding inside the popup */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+ }
+
+ /* Styles for the video within the container */
+ #myVideo {
+   width: 99%; /* Make the video fill the container */
+   height: auto; /* Maintain aspect ratio */
+ }
+ #closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    z-index: 1001; /* Ensure close button is above video container */
+    color: #aaa;
+    float: right;
+  }
+
+  #closeButton:hover,
+  #closeButton:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<header>
+  <hr>
+  <div class="logo-and-name">
+    <div class="logo">
+      <a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/home.html"><img src="bt.png" alt="ByteBots Logo"></a>
+    </div>
+    <a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/home.html" class="company-name">
+       <h2 style="color:white;font-weight:bold;font-size:14px;" >ByteBots Consortium</h2> </a>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/home.html">Home</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/team-info.html">Team Info</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/project-overview.html">Project Overview</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/technology-stacks.html">Technology Stacks</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/implementation-process.html">Implementation Process</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/benefits-and-impacts.html">Benefits and Impact</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/future-plans.html">Future Plans</a></li>
+        <li><a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/challenges.html">Challenges</a></li>
+      </ul>
+    </nav>
+    <hr>
+</header>
+<main>
+    <section class="content">
+      <div class="content-space">
+    <div class="content-container">
+      <div class="content-heading">ByteBots Consortium: Overview</div>
+      <div class="content-description">
+        <p>
+ByteBots Consortium is more than just a team; it's a collaborative force driven
+ by the intersection of artificial intelligence, robotics, and innovation.
+ The term <b>"ByteBots"</b> symbolizes the fusion of digital intelligence (bytes)
+ with the dynamism of robotic systems. Our purpose is to push the boundaries
+ of technological advancements, fostering creativity, and bringing theoretical knowledge
+ to life through practical applications.</p>
+      </div>
+    </div>
+  </div>
+    <div class="content-container">
+      <div class="content-space">
+      <div class="circle">
+        <img src="bt.png" alt="logo">
+      </div>
+      <div class="button" style="font-weight:bold;"> <a href="https://forms.gle/2z6oYpcG2cf5k6ka7">HELP US GROW</a> </div>
+    </div>
+  </div>
+  </section>
+  <div class="heading"><h2>Engineering Tomorrow's Solutions, Today</h2></div>
+  <section class="square-cards">
+<div class="card">
+<div class="image">
+<img src="triple.jpg" alt="Motto">
+</div>
+<div class="text">
+<h2>MOTTO</h2>
+<div class="card-button" style="font-weight:bold;" onclick="showPopup('popup1')">Read</div>
+</div>
+</div>
+<div class="card">
+<div class="image">
+<img src="inno.jpg" alt="Vision">
+</div>
+<div class="text">
+<h2>VISION</h2>
+<div class="card-button" style="font-weight:bold;" onclick="showPopup('popup2')">Read</div>
+</div>
+</div>
+<div class="card">
+<div class="image">
+<img src="collab.png" alt="Mission">
+</div>
+<div class="text">
+<h2>MISSION</h2>
+<div class="card-button" style="font-weight:bold;"onclick="showPopup('popup3')">Read</div>
+</div>
+</div>
+<div class="card">
+<div class="image">
+<img src="value.png" alt="Core-values">
+</div>
+<div class="text">
+<h2>CORE VALUES</h2>
+ <div class="card-button" style="font-weight:bold;"onclick="showPopup('popup4')">Read</div>
+</div>
+</div>
+</section>
+<div class="description">
+  <p>Bytebots Consortium stands at the forefront of technological innovation, where every line of code
+     and circuit connection propels us into the future. As a collective of visionaries and trailblazers,
+     we combine our diverse expertise to create groundbreaking solutions that redefine industry standards.
+      Join us as we pioneer new horizons, driven by a relentless pursuit of excellence and a commitment to s
+      haping a brighter tomorrow.</p>
+</div>
+<div class="heading"><h2>Echoes of Wall-E: Inspiring Innovation in Bytebots Consortium's Quest</h2></div>
+<div class="gap">
+  <div class="content-description">
+    <p>In the hushed whispers of Wall-E's futuristic landscapes, Bytebots Consortium found a beacon of
+      inspiration, igniting a spark of creativity that would illuminate our path forward.
+      From the endearing charm of Wall-E's character to the awe-inspiring vision of a sustainable future,
+      the movie served as a catalyst for our team's pursuit of innovation and impact.</p>
+  </div>
+</div>
+<section class="square-cards">
+  <div class="card">
+    <div class="image">
+      <img src="wall-e.jpg" alt="wall-e">
+    </div>
+    <div class="text">
+      <h2>WALL-E</h2>
+      <div class="card-button" id="videoButton" style="font-weight:bold;">View</div>
+    </div>
+  </div>
+</section>
+
+<div id="videoContainer" style="display: none;">
+  <button id="closeButton" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; cursor: pointer; padding: 5px;">
+    <span style="font-size: 20px; font-weight: bold;">X</span>
+  </button>
+  <video id="myVideo" width="320" height="240" controls muted>
+    <source src="wall-e.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script type="text/javascript">
+  document.getElementById("videoButton").addEventListener("click", function() {
+    document.getElementById("videoContainer").style.display = "block";
+    document.getElementById("myVideo").play();
+  });
+
+  document.getElementById("closeButton").addEventListener("click", function() {
+    document.getElementById("videoContainer").style.display = "none";
+    document.getElementById("myVideo").pause();
+  });
+</script>
+
+<div class="gap">
+  <div class="content-description">
+    <p>As we reflect on our journey, the echoes of Wall-E resonate within us,
+       reminding us of the boundless possibilities that lie ahead. With each step forward,
+        Bytebots Consortium is driven by the spirit of Wall-E, fueled by a relentless passion
+        to create a world where dreams become reality, and where the future is shaped by imagination and ingenuity.</p>
+  </div>
+</div>
+<div id="popup1" class="popup">
+  <span class="close-icon" onclick="hidePopup('popup1')">&times;</span>
+  <h2 style="text-decoration:underline;text-align:center;font-size:40px" >MOTTO</h2>
+  <p style="text-align:center;"> <i>Innovate, Integrate, Inspire</i> </p>
+  <p>This succinct motto encapsulates the essence of ByteBots Consortium. We strive to innovate,
+     continually pushing the boundaries of what's possible in the realms of AI and robotics.
+      We are dedicated to integrating theoretical knowledge into tangible, real-world solutions.
+      Through our work, we aspire to inspire a community of like-minded individuals to join us on
+      this journey of technological exploration and advancement.</p>
+</div>
+<div id="popup2" class="popup">
+  <span class="close-icon" onclick="hidePopup('popup2')">&times;</span>
+  <h2 style="text-decoration:underline;text-align:center;font-size:40px">VISION</h2>
+  <p> <i> To be at the forefront of the AI and robotics revolution, leading with innovation,
+    collaboration, and a commitment to ethical and responsible technological advancements.</i></p>
+    <p>Our vision extends beyond the present, into a future where robotics revolutionize industries,
+      enrich lives, and push the boundaries of what's possible. We envision a world where intelligent
+      machines seamlessly integrate into our daily lives, augmenting human capabilities and enhancing
+      efficiency across various domains.</p>
+</div>
+<div id="popup3" class="popup">
+  <span class="close-icon" onclick="hidePopup('popup3')">&times;</span>
+  <h2 style="text-decoration:underline;text-align:center;font-size:40px">MISSION</h2>
+  <p>ByteBots Consortium is on a mission to bridge the gap between theory and application,
+    transforming theoretical knowledge in AI into practical, real-world solutions.
+    Through collaboration, education, and innovation, we aim to inspire and lead the way
+    in shaping the future of AI-driven robotics.</p>
+    <p>In ByteBots Consortium, we don't just explore possibilities; we create them. Byte by byte,
+      innovation by innovation, we are transforming the future.
+       Join us on this exciting journey of exploration and creation!</p>
+</div>
+<div id="popup4" class="popup-1">
+  <span class="close-icon" onclick="hidePopup('popup4')">&times;</span>
+  <h2 style="text-decoration:underline;text-align:center;font-size:40px">CORE VALUES</h2>
+  <ul>
+    <li> <p> <b>Innovation:</b> We embrace a culture of continuous innovation,
+      challenging the status quo to create solutions that redefine the boundaries
+       of AI and robotics.</p> </li>
+       <li> <p> <b>Collaboration:</b> Collaboration is at the heart of our approach.
+         We believe that diverse perspectives and collective efforts lead to groundbreaking achievements.</p> </li>
+          <li> <p> <b>Education: </b> ByteBots Consortium is committed to knowledge-sharing and education. We strive to
+            empower individuals by making AI and robotics accessible through resources,
+             tutorials, and collaborative learning.</p> </li>
+             <li> <p> <b>Ethics:</b>  Our work is guided by a strong ethical framework.
+                We prioritize responsible AI development, ensuring our innovations contribute positively to society.</p> </li>
+                <li> <p> <b>Community:</b> We value the sense of community within ByteBots Consortium. Together, we celebrate
+                   successes, support each other's growth, and foster an inclusive environment.</p> </li>
+  </ul>
+</div>
+<script type="text/javascript">
+// Function to show the pop-up
+function showPopup(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+// Function to hide the pop-up
+function hidePopup(id) {
+  document.getElementById(id).style.display = "none";
+}
+</script>
+</main>
+<footer>
+  <hr>
+  <div class="logo-and-name">
+  <div class="logo">
+    <a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/home.html"><img src="bt.png" alt="ByteBots logo" height="30px"></a>
+  </div>
+  <a href="file:///C:/Users/user/OneDrive/Desktop/CODING/WEB%20DEV/Byte/home.html" class="company-name">
+     <h2 style="color:white;font-weight:bold;" >ByteBots Consortium</h2> </a>
+   </div>
+            <div class="space">
+            <select class="select-right">
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="pt">Portuguese</option>
+              <option value="hi">Hindi</option>
+              <option value="bn">Bengali</option>
+              <option value="zh">Chinese (Simplified)</option>
+              <option value="zh-TW">Chinese (Traditional)</option>
+              <option value="ar">Arabic</option>
+              <option value="ru">Russian</option>
+              <option value="ja">Japanese</option>
+              <option value="ko">Korean</option>
+            </select>
+            <select class="select-left">
+              <option value="in">India</option>
+              <option value="uae">UAE</option>
+            </select>
+            <div class="container">
+              <h2>CONTACT INFORMATION</h2>
+                <div class="item"><a href="mailto:bytebotsconsortium@gmail.com">Email: bytebotsconsortium@gmail.com</a></div>
+            </div>
+            <div class="container">
+              <h2>ACKNOWLEDGEMENTS</h2>
+              <div class="item">
+              <p id="triggerText" style="cursor:pointer;" >Special Thanks To our Mentors</p>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Special Thanks To our Mentors</h2>
+                  <p>
+                    We extend our heartfelt gratitude to our esteemed mentors for their unwavering support, invaluable guidance,
+                    and steadfast presence from the very inception of this project. Their commitment to our journey, right from the
+                     initial spark of an idea to the realization of our vision, has been a cornerstone of our success.</p>
+
+                  <p>  From the earliest stages of planning and conceptualization to the final stages of execution and implementation,
+                    our mentors have been by our side, offering their expertise, wisdom, and encouragement every step of the way.
+                    Their belief in our potential, coupled with their profound insights and experience, has been a source of inspiration
+                    and motivation, driving us to strive for excellence and push the boundaries of innovation.</p>
+
+                    <p>To our mentors, we express our deepest appreciation for their unwavering dedication, steadfast support, and enduring
+                     belief in our abilities. Their presence from the start has not only shaped the trajectory of this project but also left
+                    an indelible mark on our journey as individuals and as a team.</p>
+
+                    <p>In profound gratitude and admiration,</p>
+                    <p style="text-align=right;">- Bytebots Consortium</p>
+                </div>
+
+              </div>
+
+              </div>
+            </div>
+            <script type="text/javascript">
+            // Get the modal
+              var modal = document.getElementById("myModal");
+
+              // Get the text element that triggers the modal
+              var triggerText = document.getElementById("triggerText");
+
+              // Get the <span> element that closes the modal
+              var span = document.getElementsByClassName("close")[0];
+
+              // When the user clicks on the text, open the modal
+              triggerText.onclick = function() {
+                modal.style.display = "block";
+              }
+
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+
+              // When the user clicks anywhere outside of the modal, close it
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+
+            </script>
+          <div class="container">
+          <h2>SOCIAL LINKS</h2>
+          <div class="social-container">
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/bytebots-consortium-485402306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com/people/ByteBots-Consortium/61557724145014/?mibextid=ZbWKwL" target="_blank" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+      <a href="https://x.com/BytebotsC77878?t=daHVivPiN574yN1HZ7SR3g&s=09" target="_blank" class="social-icon twitter">
+          <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/people/ByteBots-Consortium/61557724145014/?mibextid=ZbWKwL" target="_blank" class="social-icon facebook ">
+          <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+          <hr>
+          <p align="center">&copy;ByteBots Consortium 2024, All Rights Reserved.</p>
+      </footer>
+</body>
+</html>
